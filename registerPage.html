@@ -49,11 +49,12 @@
           <img src="Together-pana.svg" class="w-50" alt="" />
           <form class="w-100 px-5" id="form">
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email</label>
+              <label for="exampleInputEmail1" class="form-label">Alamat Email</label>
               <input
                 type="email"
                 class="form-control"
                 id="email"
+                placeholder="Email"
                 aria-describedby="emailHelp"
                 required
               />
@@ -62,17 +63,29 @@
               </div>
             </div>
             <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                placeholder="Username"
+                aria-describedby="emailHelp"
+                required
+              />
+            </div>
+            <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Kata Sandi</label>
               <input
                 type="password"
+                placeholder="Password"
                 class="form-control"
                 id="password"
               />
             </div>
             <button class="btn btn-primary button">Masuk</button>
             <p class="mt-3">
-              Belum memiliki akun?
-              <a href="registerPage.html" class="text-decoration-none heading">Daftar</a>
+              Sudah memiliki akun?
+              <a href="loginPage.html" class="text-decoration-none heading">Masuk</a>
             </p>
           </form>
         </div>
@@ -80,5 +93,5 @@
     </section>
   </body>
   
-  <script src="loginPage.js"></script>
+  <script src="registerPage.js"></script>
 </html>
