@@ -20,7 +20,7 @@ async function signIn(email, password) {
         localStorage.setItem('UserID', user.id)
         localStorage.setItem('CampaignJoined', user.campaign)
         console.log('login sukses')
-        window.location.replace("landingPage.html")
+        window.location.replace("index.html")
         alert("Login sukses!");
     } else {
         console.log('login gagal')

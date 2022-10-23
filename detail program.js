@@ -12,7 +12,7 @@ if (localStorage.getItem("Email")) {
 
 function Logout() {
   localStorage.clear();
-  window.location.replace('landingPage.html');
+  window.location.replace('index.html');
 }
 
 // Content
