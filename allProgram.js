@@ -12,7 +12,7 @@ if (localStorage.getItem("Email")) {
 
 function Logout() {
   localStorage.clear();
-  window.location.replace('landingPage.html');
+  window.location.replace('index.html');
 }
 
 const APIURL = "https://634f91da78563c1d82a9bced.mockapi.io/new-program";
