@@ -11,8 +11,8 @@ if (localStorage.getItem("Email")) {
 }
 
 function Logout() {
-  localStorage.removeItem("Email");
-  window.location.reload();
+  localStorage.clear();
+  window.location.replace('landingPage.html');
 }
 
 // Content
@@ -28,22 +28,31 @@ let getProgram = async (url) => {
     console.log('ini data program: ', dataProgram)
     const containerOuter = document.querySelector(".container-outer");
     containerOuter.innerHTML += `
-        <section class="container text-md-start py-5 py-md-0 px-md-0">
+        <section class="container text-md-start py-5 py-md-5 px-md-0">
             <div
-                class="container d-flex flex-column justify-content-center align-items-center mx-auto flex-md-row"
+                class="container d-flex flex-column justify-content-center align-items-center flex-md-row"
             >
-                <img
-                    src="${dataProgram.poster}"
-                    class="img-fluid w-100 col-2 order-1 order-md-1 mx-md-50"
-                    alt="together-pana"
-                />
-                <div class="order-2 order-md-2 mt-4">
+                <div class="">
+                    <img
+                        src="${dataProgram.poster}"
+                        class="img-fluid w-100 w-md-50 col-2 order-1 order-md-1 mx-md-0 rounded"
+                        alt="together-pana"
+                    />
+                </div>
+                <div class="order-2 order-md-2 mt-4 mt-md-0 px-md-4">
                     <h1 class="fw-bold">
                         ${dataProgram.nama_program}
                     </h1>
-                    <p class="my-3 text-start">
-                        ${dataProgram.partner.nama}
-                    </p>
+                    <div class="d-flex">
+                        <img
+                            src="${dataProgram.partner.logo}"
+                            class="my-3 text-start campaign-logo"
+                            alt="logo"
+                        />
+                        <p class="my-3 text-start">
+                            ${dataProgram.partner.nama}
+                        </p>
+                    </div>
                     <div class="button-joined">
 
                     </div>
@@ -56,9 +65,9 @@ let getProgram = async (url) => {
                 class="container d-flex flex-column justify-content-center align-items-center mx-auto flex-md-row"
             >
                 <div class="order-2 order-md-1">
-                    <h1 class="fw-bold">
+                    <h3 class="fw-bold">
                         Detail Program
-                    </h1>
+                    </h3>
                     <p class="my-3 text-start">
                         ${dataProgram.detail}
                     </p>
@@ -82,23 +91,28 @@ let getProgram = async (url) => {
 getProgram(api_program);
 
 async function joinCampaign(idCampaign) {
-    const idUser = localStorage.getItem('UserID')
-    const postData = {
-        campaign: idCampaign
-    }
-    let response = await fetch(`https://634e4141f34e1ed826869202.mockapi.io/users/${idUser}`, {
-        method: 'PUT',
-        body: JSON.stringify(postData),
-        headers: { "Content-type": "application/json" }
-    })
-
-    if (response.ok) {
-        console.log('Anda berhasil bergabung dalam kegiatan.')
-        alert("Anda berhasil bergabung dalam kegiatan.");
-        localStorage.setItem('CampaignJoined', idCampaign)
-        window.location.reload()
+    if (localStorage.getItem('Email')){
+        const idUser = localStorage.getItem('UserID')
+        const postData = {
+            campaign: idCampaign
+        }
+        let response = await fetch(`https://634e4141f34e1ed826869202.mockapi.io/users/${idUser}`, {
+            method: 'PUT',
+            body: JSON.stringify(postData),
+            headers: { "Content-type": "application/json" }
+        })
+    
+        if (response.ok) {
+            console.log('Anda berhasil bergabung dalam kegiatan.')
+            alert("Anda berhasil bergabung dalam kegiatan.");
+            localStorage.setItem('CampaignJoined', idCampaign)
+            window.location.reload()
+        } else {
+            console.log('Anda gagal bergabung dalam kegiatan.')
+            throw new Error(`HTTP error. Status ${response.status}`)
+        }
     } else {
-        console.log('Anda gagal bergabung dalam kegiatan.')
-        throw new Error(`HTTP error. Status ${response.status}`)
+        alert('Anda harus login lebih dahulu!')
+        window.location.reload()
     }
 }

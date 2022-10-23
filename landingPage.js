@@ -11,7 +11,7 @@ if (localStorage.getItem("Email")) {
 }
 
 function Logout() {
-  localStorage.removeItem("Email");
+  localStorage.clear();
   window.location.reload();
 }
 
@@ -77,7 +77,7 @@ let getProgram = async (url) => {
           />
           <h6 class="mt-1">${dataProgram[i].partner.nama}</h6>
         </div>
-        <a href="#" class="">Lihat Detail</a>
+        <a href="detail program.html" onclick="localStorage.setItem('idCampaign', ${dataProgram[i].id})">Detail</a>
       </div>
     </div>
   </div>
