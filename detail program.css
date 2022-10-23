@@ -74,3 +74,19 @@ aside{
     background-color: white !important;
     color: var(--primaryColor) !important;
 }
+
+@media screen and (max-width: 767px) {
+    .campaign-logo{
+        width: auto;
+        height: 25px;
+        margin-right: 10px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .campaign-logo{
+        width: auto;
+        height: 35px;
+        margin-right: 10px;
+    }
+}

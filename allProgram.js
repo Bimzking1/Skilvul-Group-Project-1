@@ -1,3 +1,20 @@
+const navbarElement = document.getElementById("navbarElement");
+
+if (localStorage.getItem("Email")) {
+  navbarElement.innerHTML = `
+    <button class="btn button" onclick=Logout() type="button">Logout</button>
+    `;
+} else {
+  navbarElement.innerHTML = `
+    <button class="btn button" onclick="location.href='loginPage.html'" type="button">Masuk</button>
+    `;
+}
+
+function Logout() {
+  localStorage.clear();
+  window.location.replace('landingPage.html');
+}
+
 const APIURL = "https://634f91da78563c1d82a9bced.mockapi.io/new-program";
 let getProgram = async (url) => {
   let response = await fetch(url);
@@ -26,7 +43,7 @@ let getProgram = async (url) => {
           />
           <h6 class="mt-1">${program.partner.nama}</h6>
         </div>
-        <a href="#" class="">Lihat Detail</a>
+        <a href="detail program.html" onclick="localStorage.setItem('idCampaign', ${program.id})">Detail</a>
       </div>
     </div>
   </div>
