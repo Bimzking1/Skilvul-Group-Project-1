@@ -1,0 +1,92 @@
+:root {
+    --primaryColor: #4E93FA;
+    --headingColor:#29325D;
+    --headingFont :'Lato', sans-serif;
+    --bodyFont:'Poppins', sans-serif;
+}
+h1, .heading {
+    font-family: var(--headingFont) !important;
+    font-weight: bold;
+    color: var(--headingColor) !important;
+}
+p {
+    color: var(--headingColor) !important;
+}
+
+.button {
+    background-color: var(--primaryColor) !important;
+    border: 1px solid var(--primaryColor) !important;
+    color: white !important;
+}
+.button:hover {
+    background-color: white !important;
+    color: var(--primaryColor) !important;
+}
+
+@media only screen and (max-width: 576px) {
+    .button {
+        width: 100% !important;
+    }
+    .about .capt {
+        width: 100% !important;
+    }
+}
+
+.img {
+    display: block;
+    width: 100%;
+}
+
+h2 {
+    padding: 200px;
+    padding-bottom: 0%;
+    font-family: var(--headingFont) !important;
+    font-weight: 800;
+    font-size: 45px;
+    color: var(--headingColor) !important;
+    width: 100%;
+    line-height: 50px;
+}
+aside{
+    padding-top: 0%;
+}
+
+.btn {
+    padding: 200px;
+    padding-bottom: 0%;
+    background-color: var(--primaryColor) !important;
+    border: 1px solid var(--primaryColor) !important;
+    color: white !important;
+}
+
+.detail-keterangan{
+    margin: 0 50px;
+}
+
+.button-join {
+    margin: 20px 0;
+    background-color: var(--primaryColor) !important;
+    border: 1px solid var(--primaryColor) !important;
+    color: white !important;
+}
+
+.button-join:hover {
+    background-color: white !important;
+    color: var(--primaryColor) !important;
+}
+
+@media screen and (max-width: 767px) {
+    .campaign-logo{
+        width: auto;
+        height: 25px;
+        margin-right: 10px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .campaign-logo{
+        width: auto;
+        height: 35px;
+        margin-right: 10px;
+    }
+}
