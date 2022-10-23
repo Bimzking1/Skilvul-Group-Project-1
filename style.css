@@ -35,6 +35,12 @@ span {
 .image-pt {
     width: 15%;
 }
+.a {
+    color: white;
+}
+a:hover {
+    color: var(--primaryColor);
+}
 footer > * {
     color: var(--headingColor);
 }
